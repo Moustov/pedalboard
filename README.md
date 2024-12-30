@@ -1,9 +1,10 @@
 Pedalboard project
 ===
 
-
 # Version 1 - soundcard-based
-@startuml
+<div hidden>
+```
+@startuml soundboardBased
 
 package "pedalboard" {
   "entrée pb" --> [pédal #1]
@@ -30,11 +31,14 @@ sortie_pb --> "entrée ampli"
 "Haut Parleur" --> audience
 
 @enduml
+```
+</div>
 
 
 # Version 2 - standalone
-
-@startuml
+<div hidden>
+```
+@startuml standalone
 
 
 component "Ampli" {
@@ -75,6 +79,8 @@ cloud audience{
 "Haut Parleur" ..> audience
 
 @enduml
+```
+</div>
 
 
 
