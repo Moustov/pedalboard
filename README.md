@@ -2,7 +2,7 @@ Pedalboard project
 ===
 
 # Version 1 - soundcard-based
-```
+```plantuml
 @startuml soundboardBased
 
 package "pedalboard" {
@@ -33,7 +33,7 @@ sortie_pb --> "entrée ampli"
 ```
 
 # Version 2 - standalone
-```
+```plantuml
 @startuml standalone
 
 
