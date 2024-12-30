@@ -1,39 +1,80 @@
-# A sample Python project
+Pedalboard project
+===
 
-![Python Logo](https://www.python.org/static/community_logos/python-logo.png "Sample inline image")
 
-A sample project that exists as an aid to the [Python Packaging User
-Guide][packaging guide]'s [Tutorial on Packaging and Distributing
-Projects][distribution tutorial].
+# Version 1 - soundcard-based
+@startuml
 
-This project does not aim to cover best practices for Python project
-development as a whole. For example, it does not provide guidance or tool
-recommendations for version control, documentation, or testing.
+package "pedalboard" {
+  "entrée pb" --> [pédal #1]
+  [pédal #1] --> [pédal #2]
+  [pédal #2] --> [looper]
+  [looper] --> sortie_pb : "Signal traité"
+}
 
-[The source for this project is available here][src].
+node "Audient EVO 8" {
+  "XLR IN (1)" --> [EVO 8] : "Signal micro"
+  "INST IN (2)" --> [EVO 8] : "Signal guitare"
+  [EVO 8] --> "OUT (mon 1)" : "Signal préamplifié"
+}
 
-Most of the configuration for a Python project is done in the `setup.py` file,
-an example of which is included in this project. You should edit this file
-accordingly to adapt this sample project to your needs.
+node "Ampli" {
+  "entrée ampli" --> [réglages]
+  [réglages] --> "Haut Parleur"
+}
 
-----
+[micro] --> "XLR IN (1)" : "Signal du micro"
+"entrée guitare" --> "INST IN (2)" : "Signal de la guitare"
+"OUT (mon 1)" --> "entrée pb"
+sortie_pb --> "entrée ampli"
+"Haut Parleur" --> audience
 
-This is the README file for the project.
+@enduml
 
-The file should use UTF-8 encoding and can be written using
-[reStructuredText][rst] or [markdown][md use] with the appropriate [key set][md
-use]. It will be used to generate the project webpage on PyPI and will be
-displayed as the project homepage on common code-hosting services, and should be
-written for that purpose.
 
-Typical contents for this file would include an overview of the project, basic
-usage examples, etc. Generally, including the project changelog in here is not a
-good idea, although a simple “What's New” section for the most recent version
-may be appropriate.
+# Version 2 - standalone
 
-[packaging guide]: https://packaging.python.org
-[distribution tutorial]: https://packaging.python.org/tutorials/packaging-projects/
-[src]: https://github.com/pypa/sampleproject
-[rst]: http://docutils.sourceforge.net/rst.html
-[md]: https://tools.ietf.org/html/rfc7764#section-3.5 "CommonMark variant"
-[md use]: https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
+@startuml
+
+
+component "Ampli" {
+  portin "entrée inst"
+  "entrée inst" --> [réglages]
+  [réglages] --> "Haut Parleur"
+}
+
+
+node "Triton Audio - FetHead" {
+
+}
+
+package "pedalboard" {
+    component "BOSS LS-2" {
+      portin "RETURN A"
+      portin "RETURN B"
+      portout "OUTPUT"
+      "RETURN A" --> [switch]
+      "RETURN B" --> [switch]
+      [switch] --> "OUTPUT"
+    }
+  [pitch pedals] --> [tone producing pedals]
+  [tone producing pedals] --> [tone modifying pedals]
+  [tone modifying pedals] --> [sound copying pedals]
+  [sound copying pedals] --> [ambience pedals]
+  [ambience pedals] --> [looper pedals]
+}
+
+cloud audience{
+}
+
+[micro SHURE Beta 58A] -0-> "Triton Audio - FetHead"
+ "Triton Audio - FetHead" --> "RETURN A" : "Signal du micro préamplifié"
+"entrée guitare" --> "RETURN B" : "Signal de la guitare"
+"OUTPUT" --> [pitch pedals]
+[looper pedals] --> "entrée inst"
+"Haut Parleur" ..> audience
+
+@enduml
+
+
+
