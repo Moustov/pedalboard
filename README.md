@@ -2,7 +2,6 @@ Pedalboard project
 ===
 
 # Version 1 - soundcard-based
-<div hidden>
 ```
 @startuml soundboardBased
 
@@ -32,11 +31,8 @@ sortie_pb --> "entrée ampli"
 
 @enduml
 ```
-</div>
-
 
 # Version 2 - standalone
-<div hidden>
 ```
 @startuml standalone
 
@@ -80,7 +76,6 @@ cloud audience{
 
 @enduml
 ```
-</div>
 
 
 
