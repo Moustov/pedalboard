@@ -13,9 +13,9 @@ package "Pedalboard" {
 }
 
 node "Audient EVO 8" {
-  "XLR IN (1)" --> [EVO 8] : "(mic level)"
-  "INST IN (2)" --> [EVO 8] : "(instr. level)"
-  [EVO 8] --> "OUT (mon 1)" : "(preamped sig. - instr. level)"
+  "EVO8 IN (1)" --> [EVO 8] 
+  "EVO8 IN (2)" --> [EVO 8]
+  [EVO 8] --> "EVO8 OUT (mon 1)" : "(preamped sig. - instr. level)"
 }
 
 node "Amplifier" {
@@ -23,9 +23,9 @@ node "Amplifier" {
   [settings] --> "Speaker"
 }
 
-[Microphone] --> "XLR IN (1)" : "(mic level)"
-"Guitar" --> "INST IN (2)" : "(instr. level)"
-"OUT (mon 1)" --> "Pedalboard IN"
+[Microphone] --> "EVO8 IN (1)" : "(mic level)"
+"Guitar" --> "EVO8 IN (2)" : "(instr. level)"
+"EVO8 OUT (mon 1)" --> "Pedalboard IN"
 "Pedalboard OUT" --> "amp. IN"
 "Speaker" ..> audience
 
