@@ -18,7 +18,7 @@ node "Audient EVO 8" {
   [EVO 8] --> "OUT (mon 1)" : "(preamped sig. - instr. level)"
 }
 
-node "Ampli" {
+node "Amplifier" {
   "amp. IN" --> [settings]
   [settings] --> "Speaker"
 }
