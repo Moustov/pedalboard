@@ -2,6 +2,9 @@ Pedalboard project
 ===
 
 # Configuration
+## Hardware
+* Raspberry Pi Zero
+## Compiler
 Based on [MinGW v2.0.0](https://www.mingw-w64.org/downloads/)
 * Download the [w64devkit-x64](https://github.com/skeeto/w64devkit/releases/download/v2.0.0/w64devkit-x64-2.0.0.exe)
 * Run the install EXE
