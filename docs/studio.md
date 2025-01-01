@@ -40,6 +40,7 @@ node "Amplifier" {
 component "Amplifier" {
   portin "Amplifier IN - inst"
   "Amplifier IN - inst" --> [settings]
+  node "Speaker"
   [settings] --> "Speaker"
 }
 
@@ -63,9 +64,8 @@ package "Pedalboard" {
   [sound copying pedals] --> [ambience pedals]
   [ambience pedals] --> [looper pedals]
 }
-
-cloud audience{
-}
+node "Guitar" 
+actor audience
 
 [micro SHURE Beta 58A] --> "Triton Audio - FetHead"
  "Triton Audio - FetHead" --> "RETURN A" : "(preamped sig. - instr level)"
