@@ -1,10 +1,24 @@
 Architecture
 ===
 
-# Standalone version
+# Standalone instr. version
+The looper can be in different flavors: instrument or microphone.
+The mic version should include a 48V phantom power supply.
+
+> __NOTE__
+> 
+> To spare DAC, Raspberry and extra casing, an input mixer/preamp realised with a simple opamp could be added.
+
+The RaspberryPi component hosts many features :
+* managing loops (start, stop, erase, overdub, ...)
+* applying sound effects (delay, reverb, distortion, ...)
+* generating a metronome beep
 
 ```plantuml
 @startuml
+title Standalone instr. version
+allowmixing
+
 sprite $part [16x16/16] {
 FFFFFFFFFFFFFFFF
 FFFFFFFFFFFFFFFF
@@ -27,107 +41,66 @@ FFFFFFFFFFFFFFFF
 !define RECTANGLE class
 
 component Looper {
-    RECTANGLE RaspberryPi  <<$part>> {
-        + Modèle: Raspberry Pi Zero
-        + OS: Raspbian
-        + Loop handler / local effect
+    portin looper_jack_in
+    portout looper_jack_out
+    
+    RECTANGLE RaspberryPi <<$part>> {
+        + Ref part: Raspberry Pi Zero
+        + OS: Raspbian        
     }
     
     RECTANGLE DAC  <<$part>> {
-        + Modèle: ES9038Q2M
+        + Ref part: ES9038Q2M
         + Type: DAC HiFi
     }
     
-    RECTANGLE "Guitar preamp"  <<$part>> {
+    RECTANGLE "instr2Hifi preamp"  <<$part>> {
         + see [**electronic level.md**]
     }
     
-    RECTANGLE "DAC preamp"  <<$part>> {
+    RECTANGLE "hifi2instr preamp"  <<$part>> {
         + see [**electronic level.md**]
     }
+
+    looper_jack_in --> "instr2Hifi preamp"
+    "instr2Hifi preamp" --> DAC : HiFi
+    DAC --> "hifi2instr preamp" : HiFi
+    DAC <--> RaspberryPi : I2S Connexion
+    "hifi2instr preamp" --> looper_jack_out : instr.
 }
 
-RECTANGLE Guitar  <<$part>> 
-RECTANGLE Amplfier  <<$part>>
+note right of Looper
+    Can be adapted to a mic
+    with XLR and instr2Hifi preamp settings 
+end note
 
-DAC --> "DAC preamp"
-"DAC preamp" --> Amplfier
-DAC <--> RaspberryPi : I2S Connexion
-"Guitar preamp" --> DAC : HiFi OUT
-Guitar -->  "Guitar preamp" : instr. IN
+RECTANGLE Guitar  <<$part>> 
+RECTANGLE Amplifier  <<$part>>
+
+Guitar -->  looper_jack_in : instr.
+note right of Guitar
+    Can be a mic
+end note
+"looper_jack_out" --> Amplifier : instr.
 
 @enduml
 ```
 
-# Multichannel standalone version
+
+# Multitrack version
+This version enables multitracking that can be run or paused separately.
+
+The connection between loopers modules requires robust mechanical links to firmly chain modules.
+The connection can be used to:
+* enable a unique link to an amplifier - therefore mixing capabilities must be added to each module
+* the beat could be shared between modules to ease loops synching
+
 ```plantuml
 @startuml
-sprite $part [16x16/16] {
-FFFFFFFFFFFFFFFF
-FFFFFFFFFFFFFFFF
-FFFFFFFFFFFFFFFF
-FFFFFFFFFFFFFFFF
-FFFFFFFFFF0FFFFF
-FFFFFFFFFF00FFFF
-FF00000000000FFF
-FF000000000000FF
-FF00000000000FFF
-FFFFFFFFFF00FFFF
-FFFFFFFFFF0FFFFF
-FFFFFFFFFFFFFFFF
-FFFFFFFFFFFFFFFF
-FFFFFFFFFFFFFFFF
-FFFFFFFFFFFFFFFF
-FFFFFFFFFFFFFFFF
-}
+title Multitrack version
 
-!define RECTANGLE class
-component Looper {
-    RECTANGLE RaspberryPi  <<$part>> {
-        + Modèle: Raspberry Pi Zero
-        + OS: Raspbian
-        + Loop handler / local effect
-    }
-    
-    RECTANGLE DAC  <<$part>> {
-        + Modèle: ES9038Q2M
-        + Type: DAC HiFi
-    }
-    
-    RECTANGLE "Mic preamp"  <<$part>> {
-        + see [**electronic level.md**]
-    }
-    
-    RECTANGLE "Guitar preamp"  <<$part>> {
-        + see [**electronic level.md**]
-    }
-    
-    RECTANGLE "DAC preamp"  <<$part>> {
-        + see [**electronic level.md**]
-    }
-}
+allowmixing
 
-
-RECTANGLE Guitar  <<$part>> 
-RECTANGLE Mic  <<$part>> 
-
-RECTANGLE Guitar  <<$part>> 
-RECTANGLE Amplfier  <<$part>>
-
-DAC --> "DAC preamp"
-"DAC preamp" --> Amplfier
-DAC <--> RaspberryPi : I2S Connexion
-"Guitar preamp" --> DAC : HiFi OUT
-"Mic preamp" --> DAC : HiFi OUT
-Guitar -->  "Guitar preamp" : instr. IN
-Mic -->  "Mic preamp" : instr. IN
-
-@enduml
-```
-
-# Multichannel multitrack version
-```plantuml
-@startuml
 sprite $part [16x16/16] {
 FFFFFFFFFFFFFFFF
 FFFFFFFFFFFFFFFF
@@ -149,44 +122,66 @@ FFFFFFFFFFFFFFFF
 
 !define RECTANGLE class
 
-component Looper {
-    RECTANGLE RaspberryPi  <<$part>> {
-        + Modèle: Raspberry Pi Zero
-        + OS: Raspbian
-        + Loop handler / local effect
+component Looper_channel1 {
+    portin looper_jack_in
+    portin looper_rca_in
+    portout looper_jack_out
+    portout looper_rca_out
+    
+    RECTANGLE RaspberryPi <<$part>> {
+        + Ref part: Raspberry Pi Zero
+        + OS: Raspbian        
     }
     
     RECTANGLE DAC  <<$part>> {
-        + Modèle: ES9038Q2M
+        + Ref part: ES9038Q2M
         + Type: DAC HiFi
     }
     
-    RECTANGLE "Mic preamp"  <<$part>> {
+    RECTANGLE "instr2Hifi preamp"  <<$part>> {
         + see [**electronic level.md**]
     }
     
-    RECTANGLE "Guitar preamp"  <<$part>> {
+    RECTANGLE "hifi2instr preamp"  <<$part>> {
         + see [**electronic level.md**]
     }
-    
-    RECTANGLE "DAC preamp"  <<$part>> {
-        + see [**electronic level.md**]
+
+    RECTANGLE "mixer"  <<$part>> {
+        + see [**mixer.md**]
+        + potentiometer to define mixing level
     }
+    looper_rca_in --> mixer : instr.
+    "hifi2instr preamp" --> mixer : instr.
+    looper_jack_in --> "instr2Hifi preamp"
+    "instr2Hifi preamp" --> DAC : HiFi
+    DAC --> "hifi2instr preamp" : HiFi
+    DAC <--> RaspberryPi : I2S Connexion
+    "hifi2instr preamp" --> looper_jack_out : instr.
 }
 
-RECTANGLE Guitar  <<$part>> 
-RECTANGLE Mic  <<$part>> 
+note right of Looper_channel1
+    Can be adapted to a mic
+    with XLR and instr2Hifi preamp settings 
+end note
 
-RECTANGLE Guitar  <<$part>> 
-RECTANGLE Amplfier  <<$part>>
 
-DAC --> "DAC preamp"
-"DAC preamp" --> Amplfier
-DAC <--> RaspberryPi : I2S Connexion
-"Guitar preamp" --> DAC : HiFi OUT
-"Mic preamp" --> DAC : HiFi OUT
-Guitar -->  "Guitar preamp" : instr. IN
-Mic -->  "Mic preamp" : instr. IN
+component Looper_channel2 {
+    portin looper_xlr_in_2
+    portin looper_rca_in_2
+    portout looper_jack_out_2
+    portout looper_rca_out_2
+}
+
+RECTANGLE Amplifier  <<$part>>
+
+Guitar -->  looper_jack_in : instr.
+note right of Guitar
+    Can be a mic
+end note
+"looper_jack_out" --> Amplifier : instr.
+
+mic --> looper_xlr_in_2
+looper_rca_out_2 --> looper_rca_in
 
 @enduml
 ```

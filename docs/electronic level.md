@@ -45,6 +45,7 @@ Here are some specific electronic component references that can be used for conv
 > * https://www.youtube.com/watch?v=Lfus8ew0udY
 > * https://fr.wikipedia.org/wiki/Montages_de_base_de_l%27amplificateur_op%C3%A9rationnel
 > * http://mawy33.free.fr/cours%20sup/32-008%20%C3%A9l%C3%A9ctrocin%C3%A9tique%20imp%C3%A9dance%20entr%C3%A9e%20sortie.pdf
+> * https://forum.arduino.cc/t/guitar-input-with-op-amp-not-giving-output/1081889/13
 
 Example of electronic design:
 ![Schematic to turn a guitar signal into HiFi compatible signal](instr2hifi.png "Schematic to turn a guitar signal into HiFi compatible signal").
