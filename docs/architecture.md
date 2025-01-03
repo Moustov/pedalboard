@@ -93,7 +93,9 @@ This version enables multitracking that can be run or paused separately.
 The connection between loopers modules requires robust mechanical links to firmly chain modules.
 The connection can be used to:
 * enable a unique link to an amplifier - therefore mixing capabilities must be added to each module
-* the beat could be shared between modules to ease loops synching
+* a beat master could be shared between  
+  * modules looper to ease loops synching
+  * time effect pedals such as a delay, flanger, tremolo, drum simulator, ...
 
 ```plantuml
 @startuml
@@ -185,3 +187,4 @@ looper_rca_out_2 --> looper_rca_in
 
 @enduml
 ```
+
