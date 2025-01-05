@@ -93,7 +93,7 @@ This version enables multitracking that can be run or paused separately.
 The connection between loopers modules requires robust mechanical links to firmly chain modules.
 The connection can be used to:
 * enable a unique link to an amplifier - therefore mixing capabilities must be added to each module
-* a [Aranger](aranger.md) could be used to share a tempo between  
+* a [Arranger](arranger.md) could be used to share a tempo between  
   * looper modules to ease loop synching
   * time effect pedals such as a delay, flanger, tremolo, drum simulator, ...
 
