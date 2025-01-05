@@ -167,6 +167,12 @@ Here is a view of the Raspberry connectors:
 > Therefore **_RPi.GPIO2 should then be installed_**
 
 > _NOTE : both RPi.GPIO and RPi.GPIO2 experienced some issues while installing with PyCharm_
- 
- 
+
+#### PIN powering 
+Code sample to activate/deactivate the pin #18: [src/python/pin18.py](src/python/pin18.py)
+
+#### PIN activation
+> To detect if a button has been pressed, see https://www.youtube.com/watch?v=T67VfwiJPMg
+
+
 
