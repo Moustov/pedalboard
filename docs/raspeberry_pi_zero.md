@@ -151,9 +151,12 @@ Here is a view of the Raspberry connectors:
 ## Interacting with GPIO 
 > see https://deusyss.developpez.com/tutoriels/RaspberryPi/PythonEtLeGpio/ :
 ![GPIO](https://deusyss.developpez.com/tutoriels/RaspberryPi/PythonEtLeGpio/images/1000020100000211000001252655A6BB.png)
+
 ### Prepare the hardware
 * Sold pins grid
 * You may then connect a Breakout Board to prototype GPIO connections ![board](https://m.media-amazon.com/images/I/71-CenLprTL.jpg)
+
+> You may use a [_breadboard_](https://www.youtube.com/watch?v=6WReFkfrUIk) to prototype your project
 
 ### Python script
 
