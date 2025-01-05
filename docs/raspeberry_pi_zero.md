@@ -160,22 +160,64 @@ Here is a view of the Raspberry connectors:
 
 ### Python script
 
-> /!\ As per [this tuto](https://deusyss.developpez.com/tutoriels/RaspberryPi/PythonEtLeGpio/#LIII-A), you would
-> ```bash
-> $ sudo apt install python3-RPi.GPIO
+> /!\ As per [this tuto](https://deusyss.developpez.com/tutoriels/RaspberryPi/PythonEtLeGpio/#LIII-A), you should install the package
+> `python3-RPi.GPIO`. Unfortunately, GPIO input does not work and generates a RuntimeError
 > ```
-> Except that  (source: https://pypi.org/project/RPi.GPIO2/)
+> Traceback (most recent call last):
+>   File "/home/chris/./push_button.py", line 23, in <module>
+>     GPIO.add_event_detect(pin_number, GPIO.BOTH, callback=button_callback, bouncetime=100)
+> RuntimeError: Failed to add edge detection
+> ```
+> The fix is explained [here](https://raspberrypi.stackexchange.com/questions/147332/rpi-gpio-runtimeerror-failed-to-add-edge-detection).
+> It requires python3-rpi-lgpio :
+> ```bash
+> $ sudo apt update
+> $ sudo apt install python3-rpi-lgpio
+> ```
+> This could be linked with an issue mentionned in [RPi.GPIO2](https://pypi.org/project/RPi.GPIO2/):
 > > RPi.GPIO requires non-standard kernel patches that expose the GPIO registers to userspace via a character device /dev/gpiomem. As this is not supported by the mainline Linux kernel, any distribution targeting Raspberry Pi devices running the mainline kernel will not be compatible with the RPi.GPIO library. As a large number of tutorials, especially those targeted at beginners, demonstrate use of the RPi's GPIO pins by including RPi.GPIO syntax, this incompatibility limits users to distributions build on a special downstream kernel maintained by the Rapberry Pi foundation. We would like to enable beginners on any Linux distribution by allowing them to follow easily available tutorials.
->
-> Therefore **_RPi.GPIO2 should then be installed_**
-
-> _NOTE : both RPi.GPIO and RPi.GPIO2 experienced some issues while installing with PyCharm_
+> 
+> Therefore **_RPi.GPIO2 should then be installed_** 
+> > _NOTE : both RPi.GPIO and RPi.GPIO2 experienced some issues while installing with PyCharm_
 
 #### PIN powering 
-Code sample to activate/deactivate the pin #18: [src/python/pin18.py](src/python/pin18.py)
+* Source code: code sample to activate/deactivate the pin #18: [src/python/pin18_power_up.py](src/python/pin18_power_up.py)
+* Hardware: 
+  * if the Breakout Board is used, the LED should be turned on and off
+  * otherwise here is a possible schema:
+```
+    +--[LED]--+
+    |         |
+    R1        |
+    |         |
++---|---------|------------------------------------+
+|   : : : : : : : : : : : : : : : : : : : : (GPIO) |
+|                                                  |
+|  +-----+                                +------+ | 
+|  | µSD |                                |micro | |
+|  +-----+                                |camera| |
+```
+    * The R1 resistor (100k) is connected to GPIO pin #2 (+5V)
+    * the LED is connected to R1 and GPIO pin #18
 
 #### PIN activation
 > To detect if a button has been pressed, see https://www.youtube.com/watch?v=T67VfwiJPMg
+The source code is in [src/python/push_button.py](src/python/push_button.py)
+
+```
+      +--[PB]---------------------------+
+      |                                 |
+      R1                                |
+      |                                 |
++-----|---------------------------------|----------+
+|   : : : : : : : : : : : : : : : : : : : : (GPIO) |
+|                                                  |
+|  +-----+                                +------+ | 
+|  | µSD |                                |micro | |
+|  +-----+                                |camera| |
+```
+    * The R1 resistor (100k) is connected to GPIO pin #34 (GND)
+    * the PB (push button) is connected to R1 and GPIO pin #20
 
 
 
