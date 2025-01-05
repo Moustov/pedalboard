@@ -4,13 +4,20 @@ Raspberry Pi Zero - 101
 # Unboxing
 > Model: [Raspberry Pi Zero 2 W](https://wiki.52pi.com/index.php?title=ER-0031)
 
-## Prepare the OS installation
-> Since I could not have any display through the HDMI, I used the SSH connection over Wi-Fi   
-* Prepare the micro SD card : https://www.youtube.com/watch?v=Hdm26W9dHK0
-  * define the Wi-Fi in the OS settings while preparing the OS image on the micro SD card
-  * define a local user for the Raspberry OS (_e.g._ `my_local_user`)
- 
-## Run the board
+## Prepare the OS installation + start
+### HDMI + keyboard solution
+> FAILED : Since I could not have any display through the HDMI, I used the SSH connection over Wi-Fi   
+
+> _NOTE_ : apparently, the fix is in the config.txt file (see [manual](https://www.raspberrypi.com/documentation/computers/config_txt.html#hdmi-mode)) 
+
+### SSH solution
+> ACHIEVED
+
+Prepare the micro SD card : https://www.youtube.com/watch?v=Hdm26W9dHK0
+* define the Wi-Fi in the OS settings while preparing the OS image on the micro SD card
+* define a local user for the Raspberry OS (_e.g._ `my_local_user`)
+
+Run the board:
   * plug the Raspberry board
   * retrieve the Raspberry IP address
   * use Putty of Git Bash
@@ -20,6 +27,13 @@ Raspberry Pi Zero - 101
 where 
   * `my_local_user` being the user defined during OS preparation
   * `192.168.0.40` being the retrieved IP
+
+ 
+### USB OTG solution
+> NOT TESTED
+
+See https://www.raspberrypi.com/documentation/computers/config_txt.html#hdmi-mode
+
 
 ## Configure the OS
 
@@ -149,7 +163,8 @@ Here is a view of the Raspberry connectors:
 ```
 
 ## Interacting with GPIO 
-> see https://deusyss.developpez.com/tutoriels/RaspberryPi/PythonEtLeGpio/ :
+> * see https://www.raspberrypi.com/documentation/computers/config_txt.html#hdmi-mode
+> * see https://deusyss.developpez.com/tutoriels/RaspberryPi/PythonEtLeGpio/ :
 ![GPIO](https://deusyss.developpez.com/tutoriels/RaspberryPi/PythonEtLeGpio/images/1000020100000211000001252655A6BB.png)
 
 ### Prepare the hardware
