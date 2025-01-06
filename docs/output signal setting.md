@@ -1,14 +1,16 @@
+Retrieving knob value
+===
+
 Pour récupérer le niveau d'un potentiomètre et l'injecter dans le code du looper, on utilise un convertisseur analogique-numérique (CAN), comme le MCP3008, connecté au Raspberry Pi.
 
 # Matériel Nécessaire
 * Raspberry Pi Zero
 * [MCP3008](https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf) : Un convertisseur analogique-numérique à 8 canaux.
-* Potentiomètre logarithmique
+* Potentiomètre linéaire / logarithmique
 * Câbles de connexion
 * Breadboard (facultatif)
 
 # Schéma de Connexion
-
 Connecter le MCP3008 au Raspberry Pi :
 * VDD (MCP3008) à 3.3V (Raspberry Pi)
 * VREF (MCP3008) à 3.3V (Raspberry Pi)
