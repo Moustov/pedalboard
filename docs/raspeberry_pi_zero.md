@@ -30,7 +30,7 @@ where
 
  
 ### USB OTG solution
-> NOT TESTED
+> The otg_mode is only for Raspberry Pi 4
 
 See https://www.raspberrypi.com/documentation/computers/config_txt.html#hdmi-mode
 
@@ -169,7 +169,8 @@ Here is a view of the Raspberry connectors:
 
 ### Prepare the hardware
 * Sold pins grid
-* You may then connect a Breakout Board to prototype GPIO connections ![board](https://m.media-amazon.com/images/I/71-CenLprTL.jpg)
+* You may then connect a [Breakout Board](https://github.com/Freenove/Freenove_Breakout_Board_for_Raspberry_Pi) 
+  to prototype GPIO connections ![board](https://m.media-amazon.com/images/I/71-CenLprTL.jpg)
 
 > You may use a [_breadboard_](https://www.youtube.com/watch?v=6WReFkfrUIk) to prototype your project
 
@@ -234,5 +235,12 @@ The source code is in [src/python/push_button.py](src/python/push_button.py)
     * The R1 resistor (100k) is connected to GPIO pin #34 (GND)
     * the PB (push button) is connected to R1 and GPIO pin #20
 
+### C code
+To do.
 
+## Potentiometer reading - Interacting with ADS1115 External 16 Bit ADC
+The purpose of this card is to convert an analog signal into a numeric value so that the value of a potentiometer.
 
+Here is a sample on how to make it: 
+* general info: https://docs.cirkitdesigner.com/component/a31888c7-8f98-4d81-5f3b-e5a17a61923e/adafruit-ads1115-16bit-i2c-adc
+* schema: https://app.cirkitdesigner.com/project/2f7ffdde-d487-4cfe-a04c-324202820c3b
