@@ -12,18 +12,23 @@ pin_number = 18
 # Set up the GPIO pin as an output
 GPIO.setup(pin_number, GPIO.OUT)
 
-try:
-    # Activate the pin (set it high)
-    GPIO.output(pin_number, GPIO.HIGH)
-    print(f"GPIO {pin_number} is now HIGH.")
+while True:
+    try:
+        # Activate the pin (set it high)
+        GPIO.output(pin_number, GPIO.HIGH)
+        print(f"GPIO {pin_number} is now HIGH.")
 
-    # Keep it high for 5 seconds
-    time.sleep(5)
+        # Keep it high for 1 seconds
+        time.sleep(1)
+        GPIO.output(pin_number, GPIO.LOW)
+        print(f"GPIO {pin_number} is now LOW.")
+        # Keep it low for 1 seconds
+        time.sleep(1)
 
-finally:
-    # Deactivate the pin (set it low)
-    GPIO.output(pin_number, GPIO.LOW)
-    print(f"GPIO {pin_number} is now LOW.")
+    finally:
+        # Deactivate the pin (set it low)
+        GPIO.output(pin_number, GPIO.LOW)
+        print(f"GPIO {pin_number} is now LOW.")
 
-    # Clean up the GPIO settings
-    GPIO.cleanup()
+# Clean up the GPIO settings
+GPIO.cleanup()

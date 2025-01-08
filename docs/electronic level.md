@@ -46,10 +46,11 @@ Here are some specific electronic component references that can be used for conv
 > * https://fr.wikipedia.org/wiki/Montages_de_base_de_l%27amplificateur_op%C3%A9rationnel
 > * http://mawy33.free.fr/cours%20sup/32-008%20%C3%A9l%C3%A9ctrocin%C3%A9tique%20imp%C3%A9dance%20entr%C3%A9e%20sortie.pdf
 > * https://forum.arduino.cc/t/guitar-input-with-op-amp-not-giving-output/1081889/13
+>
+> the most advanced work on this is probably https://electronics.stackexchange.com/questions/607840/best-way-to-reduce-hf-noise-in-oma2134-op-amp-preamp-circuit/610271#610271
+> 
+> ![sample](preamp.jpg)
 
-Example of electronic design:
-![Schematic to turn a guitar signal into HiFi compatible signal](instr2hifi.png "Schematic to turn a guitar signal into HiFi compatible signal").
-(edited with https://pro.easyeda.com)
 
 ## General Components
 
