@@ -177,6 +177,13 @@ $ sudo apt update
 $ sudo apt install pigpio
 ```
 
+> To change the port at which the pigpio service listens to can be configured with
+> `-p` option :
+> ```
+> [Service]
+> ExecStart=/usr/bin/pigpiod -l -p 8889
+> ```
+
 The source code that demoes a blinking LED is available in [src/c/blink.c](src/c/blink.c).
 To compile it, run
 ```bash
