@@ -196,3 +196,7 @@ Beside the pedals before the looper system, both multitracks and [arranger](arra
   * The maximum theoretical data rate for 802.11n can reach up to 600 Mbps on the Raspberry Pi Zero 2 W
 * Bluetooth for time synching
   * Maximum Theoretical Bandwidth: Bluetooth 5.0 can achieve data rates of up to 2 Mbps on the Raspberry Pi Zero 2 W
+
+This wireless version would then enable each musician to control their own loops and effects, the arranger could then be split into
+* a mixing module (for the sound engineer to control the balance)
+* a drum module (for the drummer to set the tempo at start - an internal mic would listen to the sticks start and time signature or something like that...)
