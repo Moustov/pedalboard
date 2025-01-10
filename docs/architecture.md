@@ -188,3 +188,11 @@ looper_rca_out_2 --> looper_rca_in
 @enduml
 ```
 
+
+# Wireless version
+Beside the pedals before the looper system, both multitracks and [arranger](arranger.md) can communicated through wireless protocols:
+* WiFi for the sound: 
+  * Bandwidth Required: Approximately 9.216 Mbps for a 24-bit, 192 kHz stereo audio signal.
+  * The maximum theoretical data rate for 802.11n can reach up to 600 Mbps on the Raspberry Pi Zero 2 W
+* Bluetooth for time synching
+  * Maximum Theoretical Bandwidth: Bluetooth 5.0 can achieve data rates of up to 2 Mbps on the Raspberry Pi Zero 2 W
