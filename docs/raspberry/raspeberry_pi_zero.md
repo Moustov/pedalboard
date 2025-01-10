@@ -146,6 +146,16 @@ Copyright (C) 2022 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
+
+# How to build
+To build the [helloworld.c](test/helloworld.c), run
+```shell
+$ /c/w64devkit/bin/cc.exe -o tests/helloworld tests/helloworld.c
+```
+This will create the file "helloworld.exe". You may then run `helloworld.exe`
+```shell
+$ helloworld.exe
+```
 ### GPIO test
 To handle the GPIO interface, there is a linux service to use. You may check its status through
 ```bash
