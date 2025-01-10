@@ -146,6 +146,47 @@ Copyright (C) 2022 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
+### GPIO test
+To handle the GPIO interface, there is a linux service to use. You may check its status through
+```bash
+$ sudo systemctl status pigpiod
+```
+A success should display something like
+```
+● pigpiod.service - Daemon required to control GPIO pins via pigpio
+     Loaded: loaded (/lib/systemd/system/pigpiod.service; disabled; preset: enabled)
+     Active: active (running) since Fri 2025-01-10 18:47:33 CET; 2s ago
+    Process: 562 ExecStart=/usr/bin/pigpiod -l -p 8889 (code=exited, status=0/SUCCESS)
+   Main PID: 563 (pigpiod)
+      Tasks: 4 (limit: 178)
+        CPU: 286ms
+     CGroup: /system.slice/pigpiod.service
+             └─563 /usr/bin/pigpiod -l -p 8889
+
+Jan 10 18:47:33 raspberrypi systemd[1]: Starting pigpiod.service - Daemon required to control GPIO pins via pigpio...
+Jan 10 18:47:33 raspberrypi systemd[1]: Started pigpiod.service - Daemon required to control GPIO pins via pigpio.
+```
+Otherwise you should start the service:
+
+```bash
+$ sudo systemctl start pigpiod
+```
+or even install it 
+```bash
+$ sudo apt update
+$ sudo apt install pigpio
+```
+
+The source code that demoes a blinking LED is available in [src/c/blink.c](src/c/blink.c).
+To compile it, run
+```bash
+$ gcc -o blink blink.c -lpigpio -lpthread
+```
+Then use sudo to run the code:
+```bash
+$ sudo blink
+```
+
 
 # Raspberry board hardware upgrading
 
