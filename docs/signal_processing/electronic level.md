@@ -42,6 +42,7 @@ Here are some specific electronic component references that can be used for conv
    * **OPA2134**: A high-performance audio op-amp suitable for preamplification. Ideal for high-fidelity audio applications, with wider bandwidth and lower harmonic distortion.
 
 ## Theory
+![Basic configurations](ampli.jpg)
 To transform a mic signal into a guitar level signal, we shoud use a "Non-Inverting Amplifier":
 
 ![Non-Inverting Amplifier](https://upload.wikimedia.org/wikipedia/commons/4/44/Op-Amp_Non-Inverting_Amplifier.svg)
