@@ -57,7 +57,7 @@ Thus, with an OA such as TI's [OPA2134PA](https://www.ti.com/lit/ds/symlink/opa2
 
 To adapt the signal level of a dynamic microphone (approximately -60 dBV to -40 dBV) to the level of a guitar signal (approximately -10 dBV to -20 dBV), you will need to increase the gain of your amplifier. Here’s how you can determine the values of R1 and R2.
 
-### Calculations
+### Gain calculation
 
 1. **Signal Levels**:
    - Microphone: -60 dBV to -40 dBV
@@ -66,7 +66,7 @@ To adapt the signal level of a dynamic microphone (approximately -60 dBV to -40 
 2. **Level Difference**:
    - To adapt the microphone signal to the highest guitar level (-10 dBV), you will need a gain of around 50 dB (since 50 dB corresponds to a ratio of 100,000 times in voltage).
 
-### Required Gain
+#### Required Gain
 
 To convert -60 dBV to -10 dBV, the difference is 50 dB. In terms of gain:
 
@@ -75,7 +75,7 @@ To convert -60 dBV to -10 dBV, the difference is 50 dB. In terms of gain:
 > which means _100 times_
 
 
-### Gain Formula
+#### Gain Formula
 For a non-inverting amplifier:
 > A = 1 + R1/R2
 
@@ -85,7 +85,7 @@ To achieve a gain of 100:
 This means:
 > R1/R2 = 99
 
-### Example Values
+#### Example Values
 
 - If you choose **R2 = 1 kΩ**:
   - Then R1 = 99 kΩ (you can use a nearby resistance, like 100 kΩ).
@@ -93,6 +93,26 @@ This means:
 - If you choose **R2 = 10 kΩ**:
   - Then R1 = 990 kΩ (you can use a combination of resistors to achieve this value).
 
+### High-pass filters
+You could note the INPUT is plugged to a condensor (C1) with its other pin plugged to resistors (R3 or R4).
+These are typically [High-pass filters](https://en.wikipedia.org/wiki/High-pass_filter).
+![High-pass filter](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/CR_high_pass_filter.svg/440px-CR_high_pass_filter.svg.png)
+
+To cut frequencies under 20Hz, the classic formulae is 
+> Fc = 1 / (2 * PI * R * C)
+ 
+Which can be implemented with 
+* R = 80 kOhm
+* C = 100 nF
+
+Similarly, a [low-pass filter](https://en.wikipedia.org/wiki/Low-pass_filter) could be added to cut frequencies higher than 20 kHz with the same calculation.
+![Low-pass filter](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1st_Order_Lowpass_Filter_RC.svg/500px-1st_Order_Lowpass_Filter_RC.svg.png)
+
+### Peak detector
+
+### Gain control
+
+### EQ
 
 ## See also  
 > To discover more on signal transformation watch this tutorial :
