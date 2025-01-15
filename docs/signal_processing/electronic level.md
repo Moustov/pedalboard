@@ -177,6 +177,10 @@ To generate both +9V and -9V from a single +9V power supply, you can use a few d
 see example [here](https://theorycircuit.com/ic-555-ic-741/9v-dual-power-supply-from-3v/)
 ![example](https://theorycircuit.com/wp-content/uploads/2019/09/9V-dual-power-supply-circuit.png)
 
+
+see also 
+![TC1044SCPA](https://preview.redd.it/c673rojl58q91.jpg?width=750&format=pjpg&auto=webp&s=febe27b96f6bb92c587cb881071a9e9ddb12a241)
+
 ## See also  
 > To discover more on signal transformation watch this tutorial :
 > * https://www.youtube.com/watch?v=Lfus8ew0udY
