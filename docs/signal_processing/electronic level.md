@@ -129,6 +129,51 @@ To fine tune the signal, an equalizer may be added:
 ![6 bands EQ](https://www.next.gr/uploads/3/6%252BGraphic%252BEqualiser%252BCircuit%252B741%252BOp-Amp.jpg)
 
 (check [here](https://schematicblog.blogspot.com/2011/08/6-graphic-equaliser-circuit-741-op-amp.html) for the BOM)
+### Power Supply
+To generate both +9V and -9V from a single +9V power supply, you can use a few different methods. Here’s a common approach using an **inverting voltage regulator** or a **virtual ground** circuit.
+
+#### Using an Inverting Voltage Regulator (LM7909)
+
+1. **Components Needed**:
+   - LM7909 Voltage Regulator (or similar)
+   - Capacitors (typically 0.33 µF and 1 µF for stability)
+   - +9V Power Supply
+   - Breadboard or PCB for assembly
+
+2. **Circuit Diagram**:
+
+```
+   +9V Supply
+       |
+       |
+      | |
+      | | 0.33 µF
+      | |
+       |
+       +-------------------+
+       |                   |
+     + |                   |
+    ----                   |
+   |    |                 ---
+   | LM  |                 |
+   | 7909|                 | 1 µF
+   |    |                 ---
+   |    |                   |
+   ----                     |
+     -                     GND
+       |
+      ---
+      | | 1 µF
+      | |
+       |
+      GND
+```
+
+3. **Connections**:
+   - Connect the input of the LM7909 to the +9V supply.
+   - Connect the output to the desired load for -9V.
+   - Connect capacitors as shown for stability.
+
 
 ## See also  
 > To discover more on signal transformation watch this tutorial :
