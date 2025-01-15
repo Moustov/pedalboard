@@ -122,7 +122,7 @@ To adjust the gain, since a non-inverting amplifier configuration will be used, 
 
 > Vout = Vin(1+R1/R2)
  
-Therefore, if logarithmic potentiometer is put instead of a fixed resistor, the Vout will be adjusted. 
+Therefore, if a logarithmic potentiometer is put instead of a fixed resistor, the Vout will be adjusted. 
  
 ### EQ
 To fine tune the signal, an equalizer may be added:
