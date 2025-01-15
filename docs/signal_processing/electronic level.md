@@ -32,9 +32,11 @@ Those cards are audio USB "class compliant".
         Less subject to extreme dynamic range variations.
         Designed for faithful sound reproduction, with a high signal-to-noise ratio.
 
-To handle such signal, Raspberry cards such as
-* [Raspberry Pi ES9038Q2M HiFi DAC Pro Hat](https://www.inno-maker.com/wp-content/uploads/2022/09/HIFI-DAC-Pro-User-ManualV1.0.pdf)
-* [innomaker Raspberry Pi extension card PCM5122 HiFi DAC](http://www.inno-maker.com/wp-content/uploads/2017/11/HIFI-DAC-User-Manual-V1.2.pdf)
+To handle such signal, Raspberry cards such as [Hifiberry DAC+ ADC](https://www.hifiberry.com/docs/data-sheets/datasheet-dac-adc/).
+This reference has been chosen since it provides:
+- both Analog to digital and digital to analog converters (ADC + DAC)
+- 24 bits + 192 kHz sampling characteristics
+- compatibility with [Rasperry OS](https://www.raspbian.org/) (Raspberry Pi Linux kernel of at least version 4.19.60) and [sounddevice](https://pypi.org/project/sounddevice/) python library or [PortAudio](https://www.portaudio.com/) for C code
 
 # Signal transformation
 Here are some specific electronic component references that can be used for converting between instrument signals and Hi-Fi signals:
@@ -43,6 +45,7 @@ Here are some specific electronic component references that can be used for conv
 
 ## Theory
 ![Basic configurations](ampli.jpg)
+
 To transform a mic signal into a guitar level signal, we shoud use a "Non-Inverting Amplifier":
 
 ![Non-Inverting Amplifier](https://upload.wikimedia.org/wikipedia/commons/4/44/Op-Amp_Non-Inverting_Amplifier.svg)
@@ -51,7 +54,10 @@ With
 > Vout = Vin(1+R1/R2)
 
 ## Real life schema
-Filters are usually inserted between IC and IO: ![OA IRL](https://www.electrical4u.com/wp-content/uploads/What-is-a-Non-Inverting-Amplifier.png?ezimgfmt=rs%3Adevice%2Frscb38-1)
+Filters are usually inserted between IC and IO:
+![OA IRL](https://www.electrical4u.com/wp-content/uploads/What-is-a-Non-Inverting-Amplifier.png?ezimgfmt=rs%3Adevice%2Frscb38-1)
+(www.electrical4u.com)
+
 Thus, with an OA such as TI's [OPA2134PA](https://www.ti.com/lit/ds/symlink/opa2134.pdf), the schema would be:
 ![OPA2134PA schema](OPA2134PA_schema.png)
 
@@ -109,10 +115,20 @@ Similarly, a [low-pass filter](https://en.wikipedia.org/wiki/Low-pass_filter) co
 ![Low-pass filter](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/1st_Order_Lowpass_Filter_RC.svg/500px-1st_Order_Lowpass_Filter_RC.svg.png)
 
 ### Peak detector
+To avoid overloading the signal and reaching inadmissible voltages, a [VOLTAGE LEVEL DETECTOR](https://www.researchgate.net/publication/280728100_Op-Amp_Application_Circuits_practice_1) could be involved.
 
 ### Gain control
+To adjust the gain, since a nonè-inverting amplifier configuration will be used, we will simply apply the formula
 
+> Vout = Vin(1+R1/R2)
+ 
+Therefore, if logarithmic potentiometer is put instead of a fixed resistor, the Vout will be adjusted. 
+ 
 ### EQ
+To fine tune the signal, an equalizer may be added:
+![6 bands EQ](https://www.next.gr/uploads/3/6%252BGraphic%252BEqualiser%252BCircuit%252B741%252BOp-Amp.jpg)
+
+(check [here](https://schematicblog.blogspot.com/2011/08/6-graphic-equaliser-circuit-741-op-amp.html) for the BOM)
 
 ## See also  
 > To discover more on signal transformation watch this tutorial :
