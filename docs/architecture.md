@@ -49,9 +49,9 @@ component Looper {
         + OS: Raspbian        
     }
     
-    RECTANGLE DAC  <<$part>> {
-        + Ref part: ES9038Q2M
-        + Type: DAC HiFi
+    RECTANGLE DAC/ADC  <<$part>> {
+        + Ref part: HifiBerry DAC+ ADC
+        + Type: DAC/ADC HiFi
     }
     
     RECTANGLE "instr2Hifi preamp"  <<$part>> {
@@ -135,9 +135,9 @@ component Looper_channel1 {
         + OS: Raspbian        
     }
     
-    RECTANGLE DAC  <<$part>> {
-        + Ref part: ES9038Q2M
-        + Type: DAC HiFi
+    RECTANGLE DAC/ADC  <<$part>> {
+        + Ref part: HifiBerry DAC+ ADC
+        + Type: DAC/ADC HiFi
     }
     
     RECTANGLE "instr2Hifi preamp"  <<$part>> {
