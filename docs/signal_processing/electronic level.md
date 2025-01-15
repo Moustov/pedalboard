@@ -2,7 +2,7 @@ Signals caracteristics
 ===
 # Signal types
 ## Musical Instrument Signal
-* **Signal Type**: Generally analog (amplitude modulation).
+* **Signal Type**: Generally analog ([amplitude modulation](https://en.m.wikipedia.org/wiki/Amplitude_modulation)).
 * **Signal Level**:
   * *Electric Guitar*: Approximately -10 dBV to -20 dBV.
   * *Microphone*: Typically around -60 dBV to -40 dBV (for dynamic microphones).
