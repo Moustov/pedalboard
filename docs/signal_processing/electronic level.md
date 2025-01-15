@@ -174,6 +174,7 @@ To generate both +9V and -9V from a single +9V power supply, you can use a few d
    - Connect the output to the desired load for -9V.
    - Connect capacitors as shown for stability.
 
+see example [here](https://theorycircuit.com/ic-555-ic-741/9v-dual-power-supply-from-3v/)
 
 ## See also  
 > To discover more on signal transformation watch this tutorial :
