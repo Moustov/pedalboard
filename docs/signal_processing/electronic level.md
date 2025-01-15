@@ -2,7 +2,7 @@ Signals caracteristics
 ===
 # Signal types
 ## Musical Instrument Signal
-* **Signal Type**: Generally analog.
+* **Signal Type**: Generally analog (amplitude modulation).
 * **Signal Level**:
   * *Electric Guitar*: Approximately -10 dBV to -20 dBV.
   * *Microphone*: Typically around -60 dBV to -40 dBV (for dynamic microphones).
@@ -21,7 +21,7 @@ To handle such signal, sound cards such as
 Those cards are audio USB "class compliant".
 
 ## Hi-Fi Audio Signal
-* **Signal Type**: Generally analog, but can also be digital (in modern systems).
+* **Signal Type**: Generally analog (amplitude modulation), but can also be digital (in modern systems).
 * **Signal Level**:
   * *Line Level*: Approximately +4 dBu for professional equipment and -10 dBV for consumer equipment.
 * *Impedance**:
