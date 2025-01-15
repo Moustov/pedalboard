@@ -2,11 +2,20 @@ Pedalboard project
 ===
 
 # Vision
-Providing a revolutionnary pedal system for music.
+Providing a revolutionary pedal system for music.
 
 > See [docs/architecture.md](docs/architecture.md)
 
-# Background
-* Signal processing: see [docs/signal processing](docs/signal_processing)
-* Raspberry Pi + Linux environment: see [docs/raspberry](docs/raspberry)
-* Sound effects: see [docs/sound effects](docs/sound_effects)
+# Status
+- [Raspeberry Pi environment](docs/raspberry) - good enough
+- Hardware matters: 
+    - [Op Amp + signal processing](docs/signal_processing/electronic%20level.md) - good enough
+    - [Provisionning prototyping material](docs/hardware) - _ongoing_
+- [Overall architecture](docs/architecture.md) - good enough
+- [Signal processing](docs/signal_processing) - good enough
+- [Sound effects](docs/sound_effects) - good enough
+- Prototyping
+  - [LED control](src/python/raspberry/pin18_power_up.py) - OK 
+  - [push button control](src/python/raspberry/push_button.py) - OK 
+  - [Audio acquisition](src/python/sound_effect) - good enough
+  - Pedal building - Provisionning prototyping material
