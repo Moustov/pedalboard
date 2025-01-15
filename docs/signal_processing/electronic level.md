@@ -118,7 +118,7 @@ Similarly, a [low-pass filter](https://en.wikipedia.org/wiki/Low-pass_filter) co
 To avoid overloading the signal and reaching inadmissible voltages, a [VOLTAGE LEVEL DETECTOR](https://www.researchgate.net/publication/280728100_Op-Amp_Application_Circuits_practice_1) could be involved.
 
 ### Gain control
-To adjust the gain, since a nonè-inverting amplifier configuration will be used, we will simply apply the formula
+To adjust the gain, since a non-inverting amplifier configuration will be used, we will simply apply the formula
 
 > Vout = Vin(1+R1/R2)
  
