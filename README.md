@@ -18,4 +18,5 @@ Providing a revolutionary pedal system for music.
   - [LED control](src/python/raspberry/pin18_power_up.py) - OK 
   - [push button control](src/python/raspberry/push_button.py) - OK 
   - [Audio acquisition](src/python/sound_effect) - good enough
+  - [Capturing potentiometer value](docs/raspberry/output%20signal%20setting.md) - _ongoing_
   - Pedal building - Provisionning prototyping material
