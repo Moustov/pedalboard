@@ -97,7 +97,7 @@ This means:
   - Then R1 = 99 kΩ (you can use a nearby resistance, like 100 kΩ).
 
 - If you choose **R2 = 10 kΩ**:
-  - Then R1 = 990 kΩ (you can use a combination of resistors to achieve this value).
+  - Then R1 = 990 kΩ (you can use a [combination of resistors](https://phys.libretexts.org/Bookshelves/University_Physics/University_Physics_(OpenStax)/University_Physics_II_-_Thermodynamics_Electricity_and_Magnetism_(OpenStax)/10%3A_Direct-Current_Circuits/10.03%3A_Resistors_in_Series_and_Parallel) to achieve this value).
 
 ### High-pass filters
 You could note the INPUT is plugged to a condensor (C1) with its other pin plugged to resistors (R3 or R4).
