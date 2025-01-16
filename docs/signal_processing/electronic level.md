@@ -51,7 +51,7 @@ To transform a mic signal into a guitar level signal, we shoud use a "Non-Invert
 ![Non-Inverting Amplifier](https://upload.wikimedia.org/wikipedia/commons/4/44/Op-Amp_Non-Inverting_Amplifier.svg)
 
 With 
-> Vout = Vin(1+R1/R2)
+> $Vout = Vin(1+{R1 \over R2})$
 
 ## Real life schema
 Filters are usually inserted between IC and IO:
