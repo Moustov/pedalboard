@@ -76,20 +76,21 @@ To adapt the signal level of a dynamic microphone (approximately -60 dBV to -40 
 
 To convert -60 dBV to -10 dBV, the difference is 50 dB. In terms of gain:
 
-> Gain = 10^(50/20) ~ _approx 100_ 
->
-> which means _100 times_
+> $Gain = 10^{50 \over 20}$ ~ 100 
+
+which means _100 times_
 
 
 #### Gain Formula
 For a non-inverting amplifier:
-> A = 1 + R1/R2
+> $A = 1 + {R1 \over R2}$
 
 ### Choosing Values
 To achieve a gain of 100:
-> 100 = 1 + R1/R2
+> $100 = 1 + {R1 \over R2}$
+
 This means:
-> R1/R2 = 99
+> ${R1 \over R2} = 99$
 
 #### Example Values
 
@@ -105,10 +106,11 @@ These are typically [High-pass filters](https://en.wikipedia.org/wiki/High-pass_
 ![High-pass filter](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/CR_high_pass_filter.svg/440px-CR_high_pass_filter.svg.png)
 
 To cut frequencies under 20Hz, the classic formulae is 
-> Fc = 1 / (2 * PI * R * C)
+> $Fc = {1 \over (2 \pi R C)}$
+
  
 Which can be implemented with 
-* R = 80 kOhm
+* R = 80 kΩ
 * C = 100 nF
 
 Similarly, a [low-pass filter](https://en.wikipedia.org/wiki/Low-pass_filter) could be added to cut frequencies higher than 20 kHz with the same calculation.
@@ -120,7 +122,7 @@ To avoid overloading the signal and reaching inadmissible voltages, a [VOLTAGE L
 ### Gain control
 To adjust the gain, since a non-inverting amplifier configuration will be used, we will simply apply the formula
 
-> Vout = Vin(1+R1/R2)
+> $Vout = Vin * (1+{R1 \over R2})$
  
 Therefore, if a logarithmic potentiometer is put instead of a fixed resistor, the Vout will be adjusted. 
  
@@ -134,51 +136,18 @@ To generate both +9V and -9V from a single +9V power supply, you can use a few d
 
 #### Using an Inverting Voltage Regulator (LM7909)
 
-1. **Components Needed**:
-   - LM7909 Voltage Regulator (or similar)
+##### 1. **Components Needed**:
+   - Oscillator (LM555 or similar) to generate a cyclic signal
+   - Voltage Regulator (LM7909 or similar) to regulate the signal
    - Capacitors (typically 0.33 µF and 1 µF for stability)
    - +9V Power Supply
-   - Breadboard or PCB for assembly
-
-2. **Circuit Diagram**:
-
-```
-   +9V Supply
-       |
-       |
-      | |
-      | | 0.33 µF
-      | |
-       |
-       +-------------------+
-       |                   |
-     + |                   |
-    ----                   |
-   |    |                 ---
-   | LM  |                 |
-   | 7909|                 | 1 µF
-   |    |                 ---
-   |    |                   |
-   ----                     |
-     -                     GND
-       |
-      ---
-      | | 1 µF
-      | |
-       |
-      GND
-```
-
-3. **Connections**:
-   - Connect the input of the LM7909 to the +9V supply.
-   - Connect the output to the desired load for -9V.
-   - Connect capacitors as shown for stability.
 
 see example [here](https://theorycircuit.com/ic-555-ic-741/9v-dual-power-supply-from-3v/)
 ![example](https://theorycircuit.com/wp-content/uploads/2019/09/9V-dual-power-supply-circuit.png)
 
-
-see also 
+##### 2. **[TC1044SCPA](https://www.farnell.com/datasheets/129144.pdf) based circuit**
+This IC is a "charge pump DC-TO-DC voltage converter" which integrates both oscillator and voltage regulator. 
+ 
 ![TC1044SCPA](https://preview.redd.it/c673rojl58q91.jpg?width=750&format=pjpg&auto=webp&s=febe27b96f6bb92c587cb881071a9e9ddb12a241)
 
 ## See also  
