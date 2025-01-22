@@ -15,10 +15,16 @@ Signals caracteristics
         Can exhibit significant dynamic range variations, with peaks during loud play.
         Often requires a preamplifier to boost the signal level before further processing.
 
+![guitar electric levels](guitar%20signal%20level.png)
+
+This signal shows something around +/- 100mV
+
 To handle such signal, sound cards such as
 * M-Audio M-Track Duo
 * Behringer UMC22
 Those cards are audio USB "class compliant".
+
+The other way is to use a DAC/ADC Raspberry hat for signal processing, with some preamp to adjust electric levels.
 
 ## Hi-Fi Audio Signal
 * **Signal Type**: Generally analog (amplitude modulation), but can also be digital (in modern systems).
@@ -31,6 +37,10 @@ Those cards are audio USB "class compliant".
 * *Signal Characteristics**:
         Less subject to extreme dynamic range variations.
         Designed for faithful sound reproduction, with a high signal-to-noise ratio.
+
+![audio electric levels](audio%20signal%20level%20-%20RCA.png)
+
+This signal shows something around +/- 8V
 
 To handle such signal, Raspberry cards such as [Hifiberry DAC+ ADC](https://www.hifiberry.com/docs/data-sheets/datasheet-dac-adc/).
 This reference has been chosen since it provides:
