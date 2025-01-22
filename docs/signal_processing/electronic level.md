@@ -1,4 +1,4 @@
-Signals caracteristics
+²Signals caracteristics
 ===
 # Signal types
 ## Musical Instrument Signal
@@ -40,7 +40,7 @@ The other way is to use a DAC/ADC Raspberry hat for signal processing, with some
 
 ![audio electric levels](audio%20signal%20level%20-%20RCA.png)
 
-This signal shows something around +/- 8V
+The signal sent on a jack 3.5mm (headphones) shows something around +/- 8V
 
 To handle such signal, Raspberry cards such as [Hifiberry DAC+ ADC](https://www.hifiberry.com/docs/data-sheets/datasheet-dac-adc/).
 This reference has been chosen since it provides:
