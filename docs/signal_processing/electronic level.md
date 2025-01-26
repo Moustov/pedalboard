@@ -48,6 +48,8 @@ This reference has been chosen since it provides:
 - 24 bits + 192 kHz sampling characteristics
 - compatibility with [Rasperry OS](https://www.raspbian.org/) (Raspberry Pi Linux kernel of at least version 4.19.60) and [sounddevice](https://pypi.org/project/sounddevice/) python library or [PortAudio](https://www.portaudio.com/) for C code
 
+> **Example with Arduino**: https://www.electrosmash.com/pedalshield-uno 
+
 # Signal transformation
 Here are some specific electronic component references that can be used for converting between instrument signals and Hi-Fi signals:
    * **TL072**: A low-noise JFET-input operational amplifier, commonly used in audio applications. Good for general applications, but may have slightly lower performance in terms of noise and distortion compared to the OPA2134PA.
@@ -109,6 +111,23 @@ This means:
 
 - If you choose **R2 = 10 kΩ**:
   - Then R1 = 990 kΩ (you can use a [combination of resistors](https://phys.libretexts.org/Bookshelves/University_Physics/University_Physics_(OpenStax)/University_Physics_II_-_Thermodynamics_Electricity_and_Magnetism_(OpenStax)/10%3A_Direct-Current_Circuits/10.03%3A_Resistors_in_Series_and_Parallel) to achieve this value).
+
+#### Example with Arduino
+> https://www.electrosmash.com/pedalshield-uno
+
+Schematic example with an Arduino-based ADC/DAC for digital processing:  
+![Example with Arduino](https://www.electrosmash.com/images/tech/pedalshield-uno/pedalshield-uno-input-output-stages.jpg)
+
+It is a True Bypass Foot-switch based on 
+* Arduino / Genuino UNO (16MHz, 2KB RAM).
+* Analog stages using TL972 rail-to-rail operational amplifier.
+* ADC: 10bits
+* DAC: 16 bits (2x8bits PWMs running in parallel)
+* Connectors:
+  * Input Jack, 1/4 inch unbalanced, Zin=0.5MΩ.
+  * Output Jack, 1/4 inch unbalanced, Zout=0.1Ω.
+* Power supply: power taken from the Arduino UNO board.
+
 
 ### High-pass filters
 You could note the INPUT is plugged to a condensor (C1) with its other pin plugged to resistors (R3 or R4).
