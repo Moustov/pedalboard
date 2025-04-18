@@ -8,6 +8,9 @@ Pure hardware-based effects - Schematics
 > To visualize them, you may use https://www.falstad.com/circuit/circuitjs.html
 
 
+#[basic fuzz](basic%20fuzz.txt)
+![basic fuzz](basic%20fuzz.png)
+
 # [fuzz 3pot](fuzz%203pot.txt)
 ![fuzz 3pot](fuzz%203pot.png)
 
@@ -16,3 +19,4 @@ Pure hardware-based effects - Schematics
 
 #[M-bell effect](M-bell%20effect.txt)
 ![M-bell effect](M-bell%20effect.png)
+
