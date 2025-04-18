@@ -43,7 +43,7 @@ def overdrive(signal, gain=5.0, threshold=0.5):
     return np.clip(signal, -threshold, threshold)
 ```
 
-3. Fuzz
+# 3. Fuzz
 Fuzz creates a very saturated, rough sound. It's often used in electric guitars.
 
 ```python
@@ -65,6 +65,10 @@ def eq_distortion(signal, gain=5.0, threshold=0.3):
     return np.clip(signal, -threshold, threshold)
 ```
 
-5. Combining techniques
+# 5. Combining techniques
 
 You can also combine several distortion techniques to create a more complex effect.
+
+# Full electronic version
+![schematic](distortion_schematic.png)
+from [Tone Charm Audio](https://www.youtube.com/watch?v=RXIqUyW2syU)
