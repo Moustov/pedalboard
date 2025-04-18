@@ -11,6 +11,8 @@ Pure hardware-based effects - Schematics
 # [fuzz 3pot](fuzz%203pot.txt)
 ![fuzz 3pot](fuzz%203pot.png)
 
-
 # [M effect v5](M%20effect%20v5.txt)
 ![M effect v5](M%20effect%20v5.png)
+
+#[M-bell effect](M-bell%20effect.txt)
+![M-bell effect](M-bell%20effect.png)
