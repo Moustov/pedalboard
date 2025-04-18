@@ -7,6 +7,8 @@ Pure hardware-based effects - Schematics
 >
 > To visualize them, you may use https://www.falstad.com/circuit/circuitjs.html
 
+#[diode-based fuzz](diode-based%20fuzz.txt)
+![diode-based fuzz](diode-based%20fuzz.png)
 
 #[basic fuzz](basic%20fuzz.txt)
 ![basic fuzz](basic%20fuzz.png)
