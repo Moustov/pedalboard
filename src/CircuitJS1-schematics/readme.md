@@ -10,7 +10,16 @@ Pure hardware-based effects - Schematics
 # [Bazz fuss](bazz%20fuss.txt)
 "Bazz fuss" : https://home-wrecker.com/bazz.html
 This is a diode + NPN transistor-based fuzz 
-![diode-based fuzz](bazz%20fuss.png)
+![bazz fuss](bazz%20fuss.png)
+
+# [bazz fuss 2 pot](bazz%20fuss%202%20pot.txt)
+![bazz fuss 2 pot](bazz%20fuss%202%20pot%20-%20IC.png)
+## Config #1
+![bazz fuss 2 pot](bazz%20fuss%202%20pot%20-%20c1.png)
+## Config #2
+![bazz fuss 2 pot](bazz%20fuss%202%20pot%20-%20c2.png)
+## Config #3
+![bazz fuss 2 pot](bazz%20fuss%202%20pot%20-%20c3.png)
 
 # [Basic fuzz](basic%20fuzz.txt)
 ![basic fuzz](basic%20fuzz.png)
