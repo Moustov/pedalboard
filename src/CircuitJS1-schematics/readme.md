@@ -7,10 +7,10 @@ Pure hardware-based effects - Schematics
 >
 > To visualize them, you may use https://www.falstad.com/circuit/circuitjs.html
 
-# [Bazz fuss](diode-based%20fuzz.txt)
+# [Bazz fuss](bazz%20fuss.txt)
 "Bazz fuss" : https://home-wrecker.com/bazz.html
 This is a diode + NPN transistor-based fuzz 
-![diode-based fuzz](diode-based%20fuzz.png)
+![diode-based fuzz](bazz%20fuss.png)
 
 # [Basic fuzz](basic%20fuzz.txt)
 ![basic fuzz](basic%20fuzz.png)
